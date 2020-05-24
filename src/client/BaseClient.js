@@ -1,7 +1,7 @@
 'use strict';
 
 require('setimmediate');
-const EventEmitter = require('events');
+const EventEmitter = require('eventemitter2');
 const RESTManager = require('../rest/RESTManager');
 const { DefaultOptions } = require('../util/Constants');
 const Util = require('../util/Util');
@@ -12,7 +12,15 @@ const Util = require('../util/Util');
  */
 class BaseClient extends EventEmitter {
   constructor(options = {}) {
-    super();
+    super({
+      wildcard: true,
+      delimiter: '.',
+      newListener: false,
+      removeListener: false,
+      maxListeners: 10,
+      verboseMemoryLeak: false,
+      ignoreErrors: false
+    });
 
     /**
      * Timeouts set by {@link BaseClient#setTimeout} that are still active

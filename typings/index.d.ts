@@ -2182,6 +2182,7 @@ declare module 'discord.js' {
   }
 
   interface ClientEvents {
+    '*': '*';
     channelCreate: [Channel];
     channelDelete: [Channel | PartialDMChannel];
     channelPinsUpdate: [Channel | PartialDMChannel, Date];

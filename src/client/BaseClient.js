@@ -19,7 +19,7 @@ class BaseClient extends EventEmitter {
       removeListener: false,
       maxListeners: 10,
       verboseMemoryLeak: false,
-      ignoreErrors: false
+      ignoreErrors: false,
     });
 
     /**
